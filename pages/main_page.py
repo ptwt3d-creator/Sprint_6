@@ -11,12 +11,12 @@ class MainPage:
         self.driver = driver
 
     def click_order_button_in_header(self):
-        element = self.driver.find_element(*self.order_button_in_header).click()
+        element = self.driver.find_element(*self.order_button_in_header)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
         element.click()
 
     def click_order_button_in_content(self):
-        element = self.driver.find_element(*self.order_button_in_content).click()
+        element = self.driver.find_element(*self.order_button_in_content)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
         element.click()
 
@@ -26,37 +26,37 @@ class MainPage:
         element.click()
 
     def click_faq_question_charger(self):
-        element = self.driver.find_element(*Locators.faq_question_charger).click()
+        element = self.driver.find_element(*Locators.faq_question_charger)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
         element.click()
 
     def click_faq_question_cost(self):      
-        element = self.driver.find_element(*Locators.faq_question_cost).click()
+        element = self.driver.find_element(*Locators.faq_question_cost)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
         element.click()
 
     def click_faq_question_more_scooters(self):
-        element = self.driver.find_element(*Locators.faq_question_more_scooters).click()
+        element = self.driver.find_element(*Locators.faq_question_more_scooters)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
         element.click()
 
     def click_faq_question_order_cancel(self):
-        element = self.driver.find_element(*Locators.faq_question_order_cancel).click()
+        element = self.driver.find_element(*Locators.faq_question_order_cancel)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)    
         element.click()
 
     def click_faq_question_order_today(self):
-        element = self.driver.find_element(*Locators.faq_question_order_today).click()
+        element = self.driver.find_element(*Locators.faq_question_order_today)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
         element.click()
 
     def click_faq_question_prolong_return_scooter(self):
-        element = self.driver.find_element(*Locators.faq_question_prolong_return_scooter).click()
+        element = self.driver.find_element(*Locators.faq_question_prolong_return_scooter)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
         element.click()
 
     def click_faq_question_rental_time_calculation(self):
-        element = self.driver.find_element(*Locators.faq_question_rental_time_calculation).click()
+        element = self.driver.find_element(*Locators.faq_question_rental_time_calculation)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
         element.click()
 
