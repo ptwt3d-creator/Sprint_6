@@ -11,12 +11,12 @@ class MainPage:
         self.driver = driver
 
     def click_order_button_in_header(self):
-        element = self.driver.find_element(*self.order_button_in_header)
+        element = self.driver.find_element(*Locators.order_button_in_header)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
         element.click()
 
     def click_order_button_in_content(self):
-        element = self.driver.find_element(*self.order_button_in_content)
+        element = self.driver.find_element(*Locators.order_button_in_content)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
         element.click()
 
