@@ -1,31 +1,33 @@
 from selenium.webdriver.common.by import By
 
+
 class Locators:
-    order_button_in_header = (By.CLASS_NAME, "Button_Button__ra12g")
-    order_button_in_content = (By.CSS_SELECTOR, ".Button_Middle__1CSJM")
+
+    ORDER_BUTTON_IN_HEADER = (By.CLASS_NAME, "Button_Button__ra12g")
+    ORDER_BUTTON_IN_CONTENT = (By.CSS_SELECTOR, ".Button_Middle__1CSJM")
 
     # Вопросы о важном(выпадающие списки)
-    faq_question_cost = (By.ID, "accordion__heading-0")
-    faq_question_cost_text = (By.ID, "accordion__panel-0")
+    FAQ_QUESTION_COST = (By.ID, "accordion__heading-0")
+    FAQ_QUESTION_COST_TEXT = (By.ID, "accordion__panel-0")
 
-    faq_question_more_scooters = (By.ID, "accordion__heading-1")
-    faq_question_more_scooters_text = (By.ID, "accordion__panel-1") 
+    FAQ_QUESTION_MORE_SCOOTERS = (By.ID, "accordion__heading-1")
+    FAQ_QUESTION_MORE_SCOOTERS_TEXT = (By.ID, "accordion__panel-1") 
 
-    faq_question_rental_time_calculation = (By.ID, "accordion__heading-2")
-    faq_question_rental_time_calculation_text = (By.ID, "accordion__panel-2")
+    FAQ_QUESTION_RENTAL_TIME_CALCULATION = (By.ID, "accordion__heading-2")
+    FAQ_QUESTION_RENTAL_TIME_CALCULATION_TEXT = (By.ID, "accordion__panel-2")
 
-    faq_question_order_today = (By.ID, "accordion__heading-3")
-    faq_question_order_today_text = (By.ID, "accordion__panel-3")
+    FAQ_QUESTION_ORDER_TODAY = (By.ID, "accordion__heading-3")
+    FAQ_QUESTION_ORDER_TODAY_TEXT = (By.ID, "accordion__panel-3")
 
-    faq_question_prolong_return_scooter = (By.ID, "accordion__heading-4")
-    faq_question_prolong_return_scooter_text = (By.ID, "accordion__panel-4")
+    FAQ_QUESTION_PROLONG_RETURN_SCOOTER = (By.ID, "accordion__heading-4")
+    FAQ_QUESTION_PROLONG_RETURN_SCOOTER_TEXT = (By.ID, "accordion__panel-4")
 
-    faq_question_charger = (By.ID, "accordion__heading-5")
-    faq_question_charger_text = (By.ID, "accordion__panel-5")
+    FAQ_QUESTION_CHARGER = (By.ID, "accordion__heading-5")
+    FAQ_QUESTION_CHARGER_TEXT = (By.ID, "accordion__panel-5")
 
-    faq_question_order_cancel = (By.ID, "accordion__heading-6")
-    faq_question_order_cancel_text = (By.ID, "accordion__panel-6")
+    FAQ_QUESTION_ORDER_CANCEL = (By.ID, "accordion__heading-6")
+    FAQ_QUESTION_ORDER_CANCEL_TEXT = (By.ID, "accordion__panel-6")
 
-    faq_question_behind_MKAD_delivery = (By.ID, "accordion__heading-7")
-    faq_question_behind_MKAD_delivery_text = (By.ID, "accordion__panel-7")
+    FAQ_QUESTION_BEHIND_MKAD_DELIVERY = (By.ID, "accordion__heading-7")
+    FAQ_QUESTION_BEHIND_MKAD_DELIVERY_TEXT = (By.ID, "accordion__panel-7")
     
