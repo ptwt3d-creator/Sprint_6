@@ -1,7 +1,13 @@
 from datetime import datetime, timedelta # change past
 
 
+class Urls:
+
+    DZEN_URL = "https://dzen.ru/"
+    SCOOTER_URL_MAIN_PAGE = "https://qa-scooter.praktikum-services.ru/"
+
 class OrderData:
+
     def __init__(self, order_button_main_page, name, last_name, address_delivery, metro_station, phone, date, comment, rental_time, color):
         self.order_button_main_page = order_button_main_page
         self.name = name

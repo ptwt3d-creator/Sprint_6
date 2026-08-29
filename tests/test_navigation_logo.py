@@ -2,11 +2,11 @@ import pytest
 from selenium import webdriver
 from pages.base_page import BasePage
 
+
 class TestNavigationLogo:
 
     driver = None
-
-
+    
     def setup_method(self, method):
         self.driver = webdriver.Firefox()
         self.driver.get("https://qa-scooter.praktikum-services.ru/order")
