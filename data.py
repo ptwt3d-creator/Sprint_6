@@ -19,8 +19,8 @@ class Urls:
 
 class OrderData:
 
-    def __init__(self, order_button_main_page, name, last_name, address_delivery, metro_station, phone, date, comment, rental_time, color):
-        self.order_button_main_page = order_button_main_page
+    def __init__(self, order_button_place, name, last_name, address_delivery, metro_station, phone, date, comment, rental_time, color):
+        self.order_button_place = order_button_place
         self.name = name
         self.last_name = last_name
         self.address_delivery = address_delivery
@@ -32,7 +32,7 @@ class OrderData:
         self.color = color
 
 data_set_1 = OrderData(
-order_button_main_page = "in_header",
+order_button_place = "1",
 name = "Вася",
 last_name = "Иванов",
 address_delivery = "Москва, улица Воздвиженка, 12",
@@ -45,7 +45,7 @@ color = "чёрный жемчуг"
 )
 
 data_set_2 = OrderData(
-order_button_main_page = "in_content",
+order_button_place = "2",
 name = "Мария",
 last_name = "Высоцкая",
 address_delivery = "ул Ленина 5, кв 2",

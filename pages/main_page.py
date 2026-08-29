@@ -8,8 +8,9 @@ from pages.base_page import CommonPage
 
 class MainPage(CommonPage):
 
-    def click_order_button_in_header(self):
-        self._scroll_to_and_click(Locators.ORDER_BUTTON_IN_HEADER)
+    def click_order_button_by_index(self, index):
+        self.find_element(Locators.click_order_button(index))
+        self._scroll_to_and_click(Locators.click_order_button(index))
 
     def click_order_button_in_content(self):
         self._scroll_to_and_click(Locators.ORDER_BUTTON_IN_CONTENT)

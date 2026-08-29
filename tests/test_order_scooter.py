@@ -16,10 +16,7 @@ class TestOrder:
     def test_order_scooter(self, order_page, main_page, data):
 
         # Кнопка в шапка\контекс
-        if data.order_button_main_page == "in_header":
-            main_page.click_order_button_in_header()
-        else:
-            main_page.click_order_button_in_content()
+        main_page.click_order_button_by_index(data.order_button_place)
         
         # Первая форма заказа
         order_page.wait_button_next()
