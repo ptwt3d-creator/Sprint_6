@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 
-class OrderPageLocators:
+class Locators:
 
     NAME_FIRST_FIELD = (By.XPATH, "//input[@placeholder='* Имя']")
     NAME_LAST_FIELD = (By.XPATH, "//input[@placeholder='* Фамилия']")
