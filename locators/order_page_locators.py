@@ -16,3 +16,15 @@ class OrderPageLocators:
     ORDER_CREATE_BUTTON = (By.XPATH, "//*[2][text() = 'Заказать']")
     ORDER_CONFIRM_CREATE_BUTTON = (By.XPATH, "//*[text() = 'Да']")
     ORDER_CREATED_MESSAGE = (By.XPATH, "//*[text() = 'Заказ оформлен'] ")
+
+    @staticmethod
+    def GET_LOCATOR_CHOOSE_RENTAL(rental_time):
+        return (By.XPATH, f"//*[text() = '{rental_time}']")
+
+    @staticmethod
+    def GET_LOCATOR_CHOOSE_METRO(metro_station):
+        return (By.XPATH, f"//*[text() = '{metro_station}']")
+
+    @staticmethod
+    def GET_LOCATOR_CHOOSE_COLOR(color):
+        return (By.XPATH, f"//*[text() = '{color}']")
