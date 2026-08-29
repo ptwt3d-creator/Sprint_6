@@ -8,12 +8,6 @@ from data import FaqAnswersText
 class TestAccordion:
 
     driver = None
-
-    @classmethod
-    def setup_class(cls):
-        cls.driver = webdriver.Chrome()
-        cls.driver.get("https://qa-scooter.praktikum-services.ru/")
-        cls.accordion = MainPage(cls.driver)
     
     @pytest.mark.parametrize(
         "test_name, index, expected_answer_text",
@@ -29,9 +23,5 @@ class TestAccordion:
         ]
     )    
     @allure.title("{test_name}")
-    def test_accordion_faq(self, test_name, index, expected_answer_text):
-        self.accordion.check_faq_answer_by_index(index, expected_answer_text)
-    
-    @classmethod
-    def teardown_class(cls):
-        cls.driver.quit()
+    def test_accordion_faq(self, main_page, test_name, index, expected_answer_text):
+        main_page.check_faq_answer_by_index(index, expected_answer_text)

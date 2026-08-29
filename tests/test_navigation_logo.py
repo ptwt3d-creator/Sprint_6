@@ -1,28 +1,18 @@
 import pytest
 from selenium import webdriver
-from pages.base_page import BasePage
+from pages.base_page import CommonPage
 
 
 class TestNavigationLogo:
 
     driver = None
-    
-    def setup_method(self, method):
-        self.driver = webdriver.Firefox()
-        self.driver.get("https://qa-scooter.praktikum-services.ru/order")
-        self.navigation = BasePage(self.driver)
 
-    def test_yandex_logo_navigation(self):
-        self.navigation.click_logo_yandex()
-        self.navigation.wait_main_page_dzen()
-        self.navigation.check_main_page_dzen()
+    def test_yandex_logo_navigation(self, main_page_function_scope):
+        main_page_function_scope.click_logo_yandex()
+        main_page_function_scope.wait_main_page_dzen()
+        main_page_function_scope.check_main_page_dzen()
 
-    def test_scooter_logo_navigation(self):
-        self.navigation.click_logo_scooter()
-        self.navigation.wait_main_page_scooter()
-        self.navigation.check_main_page_scooter()
-
-    def teardown_method(self, method):
-        self.driver.quit()    
-
-
+    def test_scooter_logo_navigation(self, main_page_function_scope):
+        main_page_function_scope.click_logo_scooter()
+        main_page_function_scope.wait_main_page_scooter()
+        main_page_function_scope.check_main_page_scooter()
