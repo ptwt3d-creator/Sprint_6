@@ -8,8 +8,14 @@ from pages.base_page import CommonPage
 
 class MainPage(CommonPage):
 
+    def click_order_button_in_header(self):
+        self._scroll_to_and_click(Locators.ORDER_BUTTON_IN_HEADER)
+
+    def click_order_button_in_content(self):
+        self._scroll_to_and_click(Locators.ORDER_BUTTON_IN_CONTENT)
+
     def _scroll_to_and_click(self, locator):
-        element = self.find_element(*locator)
+        element = self.find_element(locator)
         self.scroll_to_element(element)
         element.click()
 
@@ -19,7 +25,7 @@ class MainPage(CommonPage):
         
         self.wait_for_element_visible(Locators.FAQ_ANSWER_TEMPLATE(index))
         
-        element = self.find_element(*Locators.FAQ_ANSWER_TEMPLATE(index))
+        element = self.find_element(Locators.FAQ_ANSWER_TEMPLATE(index))
         assert expected_answer_text in element.text
 
 

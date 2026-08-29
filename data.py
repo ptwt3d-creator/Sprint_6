@@ -1,5 +1,4 @@
-from datetime import datetime, timedelta # change past
-
+from datetime import datetime, timedelta
 
 class FaqAnswersText:
     
@@ -15,7 +14,8 @@ class FaqAnswersText:
 class Urls:
 
     DZEN_URL = "https://dzen.ru/"
-    SCOOTER_URL_MAIN_PAGE = "https://qa-scooter.praktikum-services.ru/"
+    SCOOTER_MAIN_PAGE = "https://qa-scooter.praktikum-services.ru/"
+    SCOOTER_ORDER_PAGE = "https://qa-scooter.praktikum-services.ru/order"
 
 class OrderData:
 

@@ -18,7 +18,7 @@ class BasePage:
         return WebDriverWait(self.driver, time).until(EC.visibility_of_element_located(locator))
 
     def scroll_to_element(self, element):
-        self.driver.execute_script("arguments.scrollIntoView();", element)
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
     def switch_to_new_window(self):
         all_windows = self.driver.window_handles
@@ -33,23 +33,23 @@ class BasePage:
 class CommonPage(BasePage):
 
     def click_logo_yandex(self):
-        self.find_element(*Locators.LOGO_YANDEX).click()
+        self.find_element(Locators.LOGO_YANDEX).click()
 
     def click_logo_scooter(self):
-        self.find_element(*Locators.LOGO_SCOOTER).click()   
+        self.find_element(Locators.LOGO_SCOOTER).click()   
 
     def wait_main_page_dzen(self):
         self.switch_to_new_window()
         self.wait_for_url_contains(Urls.DZEN_URL)
 
     def wait_main_page_scooter(self):
-        self.wait_for_url_contains(Urls.SCOOTER_URL_MAIN_PAGE)
+        self.wait_for_url_contains(Urls.SCOOTER_MAIN_PAGE)
 
     def check_main_page_dzen(self):
-        assert Urls.DZEN_URL in self.get_current_url
+        assert Urls.DZEN_URL in self.get_current_url()
 
     def check_main_page_scooter(self):
-        actual_url = self.get_current_url
-        assert actual_url == Urls.SCOOTER_URL_MAIN_PAGE
+        actual_url = self.get_current_url()
+        assert actual_url == Urls.SCOOTER_MAIN_PAGE
 
     
