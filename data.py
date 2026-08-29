@@ -31,28 +31,30 @@ class OrderData:
         self.rental_time = rental_time
         self.color = color
 
-data_set_1 = OrderData(
-order_button_place = "1",
-name = "Вася",
-last_name = "Иванов",
-address_delivery = "Москва, улица Воздвиженка, 12",
-metro_station = "Александровский сад",
-phone = "880035553555",
-date = (datetime.now() + timedelta(days=1)).strftime("%d.%m.%Y"),
-comment = "заказ не работает?",
-rental_time = "сутки",
-color = "чёрный жемчуг"
-)
+class OrderTestData:
 
-data_set_2 = OrderData(
-order_button_place = "2",
-name = "Мария",
-last_name = "Высоцкая",
-address_delivery = "ул Ленина 5, кв 2",
-metro_station = "Бульвар Дмитрия Донского",
-phone = "89991112233",
-date = (datetime.now() + timedelta(days=3)).strftime("%d.%m.%Y"),
-comment = "Пожалуйста, позвоните за полчаса до приезда. Код от домофона 123К4567.",
-rental_time = "трое суток",
-color = "серая безысходность"
-)
+    data_set_1 = OrderData(
+        order_button_place = "1",
+        name = "Вася",
+        last_name = "Иванов",
+        address_delivery = "Москва, улица Воздвиженка, 12",
+        metro_station = "Александровский сад",
+        phone = "880035553555",
+        date = (datetime.now() + timedelta(days=1)).strftime("%d.%m.%Y"),
+        comment = "заказ не работает?",
+        rental_time = "сутки",
+        color = "чёрный жемчуг"
+    )
+
+    data_set_2 = OrderData(
+        order_button_place = "2",
+        name = "Мария",
+        last_name = "Высоцкая",
+        address_delivery = "ул Ленина 5, кв 2",
+        metro_station = "Бульвар Дмитрия Донского",
+        phone = "89991112233",
+        date = (datetime.now() + timedelta(days=3)).strftime("%d.%m.%Y"),
+        comment = "Пожалуйста, позвоните за полчаса до приезда. Код от домофона 123К4567.",
+        rental_time = "трое суток",
+        color = "серая безысходность"
+    )

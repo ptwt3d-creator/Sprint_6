@@ -2,7 +2,7 @@
 from selenium import webdriver
 from pages.order_page import OrderPage
 from pages.main_page import MainPage
-from data import data_set_1, data_set_2
+from data import OrderTestData
 import pytest
 import allure
 
@@ -12,7 +12,7 @@ class TestOrder:
     
     @allure.title("Проверки заказ самоката через кнопки Заказать в шапке\контектсе до успешного заказа")
     @allure.description("Весь флоу позитивного сценария с двумя наборами данных")
-    @pytest.mark.parametrize ("data", [data_set_1, data_set_2])    
+    @pytest.mark.parametrize ("data", [OrderTestData.data_set_1, OrderTestData.data_set_2])    
     def test_order_scooter(self, order_page, main_page, data):
 
         # Кнопка в шапка\контекс
