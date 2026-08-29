@@ -22,7 +22,7 @@ class TestOrder:
         order_page.wait_button_next()
         order_page.enter_first_name(data.name)
         order_page.enter_last_name(data.last_name)
-        order_page.enter_address_deleviry(data.address_delivery)
+        order_page.enter_address_delivery(data.address_delivery)
         order_page.choose_metro_station(data.metro_station)
         order_page.enter_phone(data.phone)
         order_page.wait_button_next()
