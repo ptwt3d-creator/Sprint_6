@@ -8,18 +8,21 @@ from pages.base_page import CommonPage
 
 class MainPage(CommonPage):
 
-    def click_order_button_by_index(self, index):
-        self.find_element(Locators.click_order_button(index))
-        self._scroll_to_and_click(Locators.click_order_button(index))
-
-    def click_order_button_in_content(self):
-        self._scroll_to_and_click(Locators.ORDER_BUTTON_IN_CONTENT)
-
     def _scroll_to_and_click(self, locator):
         element = self.find_element(locator)
         self.scroll_to_element(element)
         element.click()
 
+    @allure.step("Клик по кнопке 'Заказать' по индексу: {index}")
+    def click_order_button_by_index(self, index):
+        self.find_element(Locators.click_order_button(index))
+        self._scroll_to_and_click(Locators.click_order_button(index))
+
+    @allure.step("Клик по кнопке 'Заказать' в теле страницы")
+    def click_order_button_in_content(self):
+        self._scroll_to_and_click(Locators.ORDER_BUTTON_IN_CONTENT)
+
+    @allure.step("Проверка ответа в FAQ под номером: {index}")
     def check_faq_answer_by_index(self, index, expected_answer_text):
 
         self._scroll_to_and_click(Locators.FAQ_QUESTION_TEMPLATE(index))
