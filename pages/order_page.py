@@ -8,6 +8,7 @@ import allure
 
 class OrderPage(CommonPage):
 
+    @allure.step("Заполнение первой формы заказа для пользователя: {data.name}")
     def fill_order_first_form(self, data):
         self.wait_button_next()
         self.enter_first_name(data.name)
@@ -15,7 +16,8 @@ class OrderPage(CommonPage):
         self.enter_address_delivery(data.address_delivery)
         self.choose_metro_station(data.metro_station)
         self.enter_phone(data.phone)
-
+    
+    @allure.step("Заполнение второй формы заказа")
     def fill_order_second_form(self, data):
         self.wait_order_create_button()
         self.enter_date_delivery(data.date)

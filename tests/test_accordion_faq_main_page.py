@@ -5,10 +5,10 @@ from locators.main_page_locators import Locators
 import allure
 from data import FaqAnswersText
 
+@allure.suite("Главная страница Самоката")
+@allure.sub_suite("Выпадающий список FAQ (Аккордеон)")
 class TestAccordion:
 
-    driver = None
-    
     @pytest.mark.parametrize(
         "test_name, index, expected_answer_text",
         [

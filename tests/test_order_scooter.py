@@ -5,12 +5,14 @@ from pages.main_page import MainPage
 from data import OrderTestData
 import pytest
 import allure
+
+
+@allure.suite("Оформление заказа")
+@allure.sub_suite("Форма бронирования самоката")
 class TestOrder:
-    
-    driver = None
-    
+
     @allure.title("Проверки заказ самоката через кнопки Заказать в шапке\контектсе до успешного заказа")
-    @allure.description("Весь флоу позитивного сценария с двумя наборами данных")
+    @allure.description("Полный путь позитивного сценария с двумя наборами данных")
     @pytest.mark.parametrize ("data", [OrderTestData.data_set_1, OrderTestData.data_set_2])    
     def test_order_scooter(self, order_page, main_page, data):
 
