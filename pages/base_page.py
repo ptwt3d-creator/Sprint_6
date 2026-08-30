@@ -31,6 +31,9 @@ class BasePage:
     def get_current_url(self):
         return self.driver.current_url
 
+    def wait_for_element_clickable(self, locator, time=3):
+        return WebDriverWait(self.driver, time).until(EC.element_to_be_clickable(locator))
+
 class CommonPage(BasePage):
 
     @allure.step("Клик по логотипу 'Яндекс'")
