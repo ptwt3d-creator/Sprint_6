@@ -8,7 +8,7 @@ import allure
 
 class OrderPage(CommonPage):
 
-    @allure.step("Заполнение первой формы заказа для пользователя: {data.name}")
+    @allure.step("Заполнение первой формы заказа")
     def fill_order_first_form(self, data):
         self.wait_button_next()
         self.enter_first_name(data.name)
