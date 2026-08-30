@@ -14,9 +14,10 @@ class MainPage(CommonPage):
         element.click()
 
     @allure.step("Клик по кнопке 'Заказать' по индексу: {index}")
-    def click_order_button_by_index(self, index):
-        self.find_element(Locators.click_order_button(index))
-        self._scroll_to_and_click(Locators.click_order_button(index))
+    def click_wait_order_button_by_index(self, index):
+        element = Locators.click_order_button(index)
+        self.wait_for_element_clickable(element)
+        self._scroll_to_and_click(element)
 
     @allure.step("Клик по кнопке 'Заказать' в теле страницы")
     def click_order_button_in_content(self):

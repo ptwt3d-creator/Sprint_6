@@ -8,6 +8,25 @@ import allure
 
 class OrderPage(CommonPage):
 
+    def fill_order_first_form(self, data):
+        self.wait_button_next()
+        self.enter_first_name(data.name)
+        self.enter_last_name(data.last_name)
+        self.enter_address_delivery(data.address_delivery)
+        self.choose_metro_station(data.metro_station)
+        self.enter_phone(data.phone)
+
+    def fill_order_second_form(self, data):
+        self.wait_order_create_button()
+        self.enter_date_delivery(data.date)
+        self.choose_time_rental(data.rental_time)
+        self.choose_color(data.color)
+        self.enter_comment(data.comment)
+    
+    def _wait_clickable_and_click(self, locator):
+        element = self.wait_for_element_clickable(locator)
+        element.click()
+
     @allure.step("Ввод адреса доставки: {address_delivery}")
     def enter_address_delivery(self, address_delivery):
         self.find_element(Locators.ADDRESS_DELIVERY_FIELD).send_keys(address_delivery)
@@ -30,19 +49,20 @@ class OrderPage(CommonPage):
 
     @allure.step("Ввод номера телефона: {phone}")
     def enter_phone(self, phone):
-        self.find_element(Locators.PHONE_FIELD).send_keys(phone)
+        element = self.wait_for_element_clickable(Locators.PHONE_FIELD) # Ждем пока уйдет перекрытие
+        element.send_keys(phone)
 
     @allure.step("Клик по кнопке подтверждения заказа 'Да'")
-    def click_button_confirm_create_order(self):
-        self.find_element(Locators.ORDER_CONFIRM_CREATE_BUTTON).click()
+    def click_wait_button_confirm_create_order(self):
+        self._wait_clickable_and_click(Locators.ORDER_CONFIRM_CREATE_BUTTON)
 
     @allure.step("Клик по кнопке оформить заказ 'Заказать'")
-    def click_button_create_order(self):
-        self.find_element(Locators.ORDER_CREATE_BUTTON).click()
+    def click_wait_button_create_order(self):
+        self._wait_clickable_and_click(Locators.ORDER_CREATE_BUTTON)
     
     @allure.step("Клик по кнопке перехода к следующему шагу 'Далее'")
-    def click_button_next(self):
-        self.find_element(Locators.BUTTON_NEXT).click()
+    def click_wait_button_next(self):
+        self._wait_clickable_and_click(Locators.BUTTON_NEXT)
 
     @allure.step("Выбор цвета самоката: {color}")
     def choose_color(self, color):
@@ -52,16 +72,20 @@ class OrderPage(CommonPage):
     @allure.step("Выбор станции метро: {metro_station}")
     def choose_metro_station(self, metro_station):
         metro_station_option = Locators.GET_LOCATOR_CHOOSE_METRO(metro_station)
-        self.find_element(Locators.METRO_STATION_SELECT).click()
-        self.wait_for_element_visible(metro_station_option)
-        self.find_element(metro_station_option).click()
+        self.find_element(Locators.METRO_STATION_SELECT).click() # Клик по полю метро
+        self._wait_clickable_and_click(metro_station_option) # Ждем указанной станции метро и кликаем по ней
 
     @allure.step("Выбор срока аренды: {rental_time}")
     def choose_time_rental(self, rental_time):
         rental_time_option = Locators.GET_LOCATOR_CHOOSE_RENTAL(rental_time)
-        self.find_element(Locators.RENTAL_TIME_SELECT).click()
-        self.wait_for_element_visible(rental_time_option)
-        self.find_element(rental_time_option).click()
+        self._wait_clickable_and_click(Locators.RENTAL_TIME_SELECT) # ждем пока уйдет перекрытие и кликаем
+        element = self.wait_for_element_clickable(rental_time_option)
+        element.click()
+
+    @allure.step("Проверка появления сообщения об успешном создании заказа")
+    def check_created_order_message(self):
+        element = self.wait_for_element_visible(Locators.ORDER_CREATED_MESSAGE)
+        assert element is not None
 
     @allure.step("Ожидание кнопки 'Далее'")
     def wait_button_next(self):
@@ -73,13 +97,7 @@ class OrderPage(CommonPage):
 
     @allure.step("Ожидание кнопки оформить заказ")
     def wait_order_create_button(self):
-        self.wait_for_element_visible(Locators.ORDER_CREATE_BUTTON)
-
-    @allure.step("Проверка появления сообщения об успешном создании заказа")
-    def check_created_order_message(self):
-        element = self.wait_for_element_visible(Locators.ORDER_CREATED_MESSAGE)
-        assert element is not None
-         
+        self.wait_for_element_visible(Locators.ORDER_CREATE_BUTTON)     
 
 
 
