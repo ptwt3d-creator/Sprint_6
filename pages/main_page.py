@@ -8,16 +8,16 @@ import allure
 
 class MainPage(CommonPage):
 
-    def _scroll_to_and_click(self, locator):
+    def _scroll_to_wait_and_click(self, locator):
         element = self.find_element(locator)
         self.scroll_to_element(element)
+        self.wait_for_element_clickable(locator)
         element.click()
 
     @allure.step("Клик по кнопке 'Заказать' с индексом: {index}")
     def click_wait_order_button_by_index(self, index):
-        element = Locators.click_order_button(index)
-        self.wait_for_element_clickable(element)
-        self._scroll_to_and_click(element)
+        locator = Locators.click_order_button(index)
+        self._scroll_to_wait_and_click(locator)
 
     @allure.step("Клик по кнопке 'Заказать' в теле страницы")
     def click_order_button_in_content(self):
@@ -26,11 +26,10 @@ class MainPage(CommonPage):
     @allure.step("Проверка ответа в FAQ под номером: {index}")
     def check_faq_answer_by_index(self, index, expected_answer_text):
 
-        self._scroll_to_and_click(Locators.FAQ_QUESTION_TEMPLATE(index))
+        self._scroll_to_wait_and_click(Locators.FAQ_QUESTION_TEMPLATE(index))
         
-        self.wait_for_element_visible(Locators.FAQ_ANSWER_TEMPLATE(index))
+        element = self.wait_for_element_visible(Locators.FAQ_ANSWER_TEMPLATE(index))
         
-        element = self.find_element(Locators.FAQ_ANSWER_TEMPLATE(index))
         assert expected_answer_text in element.text
 
 
